@@ -1,6 +1,6 @@
  class Api::UsersController < ApiController
 
-   before_action :authenticated?
+   before_action :authenticated? , except: :create
  
    def index
 
@@ -11,9 +11,9 @@
    def create
      @user = User.new(user_params)
      if @user.save
-       render json: user
+       render json: @user
      else
-       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
      end
    end
 
