@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  get 'welcome/index'
+
+  get 'welcome/about'
+
    namespace :api, defaults: { format: :json } do
      resources :users
    end
@@ -9,7 +13,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
